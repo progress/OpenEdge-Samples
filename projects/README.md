@@ -25,3 +25,4 @@ If proposing a project for submission, please adhere to the following requiremen
 - If a database is required, include all structure, schema, and (optionally) data files.
 - Keep the project self-contained and avoid 3rd-Party components if possible.
 - Limit usage of external services unless integral to the concepts presented.
+- Consider inclusion of ABLUnit tests to demonstrate validations.
