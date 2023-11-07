@@ -1,7 +1,13 @@
-# Examples
-One or more pieces of code that are not self contained. Examples of ABL coding to share specific functionality to highlight.
+# Examples #
 
-#### Kafka consumer/producer (/OpenEdge12.8/Kafka)
-OE 12.5+ Kafka consumer and producer code. You have to follow the instructions for installing Kafka in orcer for this demo to work HTTP
-To run ```./comsume.ch```
-to run ```./producer.sh```
+One or more pieces of ABL code which are self-contained and demonstrate a key feature of the language or OpenEdge product.
+
+## Functional Areas ##
+
+### Core ABL
+
+- Concepts and features available in the ABL, from procedural to Object-Oriented examples.
+
+### Kafka Consumer/Producer
+
+- Highlights the Kafka consumer and producer code available in OpenEdge 12.5 and later.
