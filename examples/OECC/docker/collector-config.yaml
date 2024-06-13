@@ -1,0 +1,29 @@
+receivers:
+  otlp:
+    protocols:
+      grpc:
+      http:
+        cors:
+          allowed_origins:
+            - http://*
+            - https://*
+
+exporters:
+  logging:
+    logLevel: debug
+  prometheus:
+    endpoint: "0.0.0.0:9464"
+
+processors:
+  batch:
+
+service:
+  telemetry:
+    logs:
+      level: "debug"
+  pipelines:
+    metrics:
+      receivers: [otlp]
+      exporters: [logging, prometheus]
+      processors: [batch]
+

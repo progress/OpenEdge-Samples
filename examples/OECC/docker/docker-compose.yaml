@@ -1,0 +1,61 @@
+volumes:
+  mongodb-data:
+  oecc-data:
+  prometheus-data:
+  grafana-data:
+
+services:
+  # MongoDB
+  mongodb:
+    restart: always
+    image: mongo:4.4-rc-focal
+    ports:
+    - 27017:27017
+    volumes:
+    - mongodb-data:/data/db
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: admin
+      MONGO_INITDB_ROOT_PASSWORD: admin
+
+  # OpenEdge Command Center Server
+  oecc:
+    restart: always
+    image: oecc
+    build: ./oecc
+    ports:
+    - 8000:8000
+    volumes:
+    - oecc-data:/oecc/data
+    depends_on:
+    - "mongodb"
+
+  # Collector
+  collector:
+    restart: always  
+    image: otel/opentelemetry-collector-contrib:0.53.0
+    command: ["--config=/conf/collector-config.yaml"]
+    volumes:
+      - ./collector-config.yaml:/conf/collector-config.yaml
+    ports:
+      - "9464:9464"
+      - "4317:4317"
+      - "4318:4318"
+
+  # Prometheus
+  prometheus:
+    restart: always  
+    image: prom/prometheus:latest
+    volumes:
+      - ./prometheus.yaml:/etc/prometheus/prometheus.yml
+      - prometheus-data:/prometheus
+    ports:
+      - "9090:9090"
+
+  # Grafana
+  grafana:
+    restart: always  
+    image: grafana/grafana:latest
+    ports:
+      - 3000:3000
+    volumes:
+    - grafana-data:/var/lib/grafana

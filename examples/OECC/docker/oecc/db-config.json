@@ -1,0 +1,15 @@
+{
+    "dbHostNameAndPort": "mongodb:27017",
+    "srvRecord": false,
+    "connectOptions": {
+        "autoIndex": true,
+        "connectTimeoutMS": 10000,
+        "socketTimeoutMS": 45000,
+        "auth": {
+            "user": "admin",
+            "password": "admin"
+        },
+	"authSource": "admin"
+    },
+    "tls": false
+}

@@ -1,0 +1,13 @@
+exporter:
+  name: "otlp"
+  endpoint: "http://192.168.56.215:4317"
+  protocol: "grpc"
+  connectionretry: 20
+  timeout: 10
+
+pasInstances:
+-  pasdir: "/psc/wrk/oepas1"
+   passchedule: 30
+   pasconnectionretry: 5
+   pasduration: seconds
+   metricsregex:  
