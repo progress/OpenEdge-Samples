@@ -13,13 +13,10 @@ fi
 if [ ! -d /psc/wrk/oepas1 ]
 then
   echo "Creating PASOE instance (oepas1)..."
-  export DLC=/psc/dlc
-  export PATH=$DLC/bin:$PATH
-
   cd /psc/wrk
-  time pasman create -v oepas1
-  cp /files/openedge.properties /psc/wrk/oepas1/conf
-  cp $DEMO/files/customer.p /psc/wrk/oepas1/openedge
+  time sudo DLC=/psc/dlc /psc/dlc/bin/pasman create -v oepas1
+  sudo cp /files/openedge.properties /psc/wrk/oepas1/conf
+  sudo cp $DEMO/files/customer.p /psc/wrk/oepas1/openedge
 
-  ./oepas1/bin/tcman.sh pasoestart -restart
+  sudo ./oepas1/bin/tcman.sh pasoestart -restart
 fi
