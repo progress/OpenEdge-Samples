@@ -47,14 +47,14 @@ fi
 
 if [ ! -f /usr/bin/file ]
 then
-  apt-get update
-  apt-get install -y file
+  sudo apt-get update
+  sudo apt-get install -y file
 fi
 
 if [ ! -f /usr/bin/jq ]
 then
-  apt-get update
-  apt-get install -y jq
+  sudo apt-get update
+  sudo apt-get install -y jq
 fi
 
 if [ -d /usr/sbin/dmidecode ]
@@ -88,8 +88,8 @@ done
 
 if [ ! -f /etc/rc.local ]
 then
-  cp files/rc.local /etc/rc.local
-  chmod +x /etc/rc.local
+  sudo cp files/rc.local /etc/rc.local
+  sudo chmod +x /etc/rc.local
 fi    
 
 chmod +x ../common/scripts/*.sh
