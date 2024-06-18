@@ -4,7 +4,7 @@
 * Ubuntu Linux 22.04
 * OpenEdge media:
     * PROGRESS_OE_12.8.3_LNX_64.tar.gz
-    * PROGRESS_OECC_AGENT_1.3.0_LNX_64.bin
+    * PROGRESS_OECC_SERVER_1.3.0_LNX_64.tar.gz
     * PROGRESS_OECC_AGENT_1.3.0_LNX_64.bin
 * Reponse file for OpenEdge installation:
     * response_12.8.3.ini
