@@ -17,7 +17,7 @@
 * You can use the OpenEdge-Samples/examples/OECC/files/response_12.8.3.ini file as a template and specify the control codes in the file.
 
 ### Steps
-1. Create files directory with installation files.
+1. Create /files directory used for the installation files.
 ~~~
 mkdir -p /files
 chown $USER /files
@@ -31,7 +31,7 @@ cd
 git clone https://github.com/progress/OpenEdge-Samples.git
 ~~~
 
-4. Run 'setup.sh' from the OECC directory.
+4. Run 'setup.sh' from the OECC directory. Script uses "sudo" to perform administrator tasks.
 ~~~
 cd ~/OpenEdge-Samples/examples/OECC
 ./setup.sh
