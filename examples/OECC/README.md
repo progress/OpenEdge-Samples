@@ -19,8 +19,8 @@
 ### Steps
 1. Create /files directory used for the installation files.
 ~~~
-mkdir -p /files
-chown $USER /files
+sudo mkdir -p /files
+sudo chown $USER /files
 ~~~
 
 2. Copy the OpenEdge media files and the response file to /files.
