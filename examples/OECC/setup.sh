@@ -29,7 +29,7 @@ fi
 FILE=PROGRESS_OECC_SERVER_${OECC_VERSION}_LNX_64.tar.gz
 if [ ! -f /files/$FILE ]
 then
-  echo "Prerequisite: OpenEdge Command Center Server ${OECC_VERSION} .tar.gz file ($FILE) must be found in /files folder."
+  echo "Prerequisite: OpenEdge Command Center server ${OECC_VERSION} .tar.gz file ($FILE) must be found in /files folder."
   exit
 fi
 
@@ -41,7 +41,7 @@ fi
 FILE=PROGRESS_OECC_AGENT_${OECC_VERSION}_LNX_64.bin
 if [ ! -f /files/$FILE ]
 then
-  echo "Prerequisite: OpenEdge Command Center Agent ${OECC_VERSION} .bin file ($FILE) must be found in /files folder."
+  echo "Prerequisite: OpenEdge Command Center agent ${OECC_VERSION} .bin file ($FILE) must be found in /files folder."
   exit
 fi
 

@@ -9,7 +9,7 @@ else
   echo FAILED
 fi
 
-echo "Waiting 30 seconds to ensure data collect from Prometheus... "
+echo "Waiting 30 seconds to ensure data collection from Prometheus... "
 sleep 30
 
 echo -n "Testing Prometheus endpoint at OTLP Collector... "
