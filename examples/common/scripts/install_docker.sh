@@ -18,10 +18,3 @@ then
   sudo apt-get -y install docker-ce docker-ce-cli containerd.io
   sudo usermod -aG docker $USER
 fi
-
-if [ ! -f /usr/local/bin/docker-compose ]
-then
-  sudo curl -sL "https://github.com/docker/compose/releases/download/v2.27.0/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
-  sudo chmod +x /usr/local/bin/docker-compose
-fi
-
