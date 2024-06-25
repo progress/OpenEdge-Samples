@@ -1,4 +1,7 @@
 #!/bin/bash
+#
+# Script to install OpenEdge Command Center Agent.
+#
 
 # Environment Variables
 # DEMO: Location of demo files

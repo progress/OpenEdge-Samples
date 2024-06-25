@@ -1,7 +1,14 @@
 # OpenEdge Command Center #
 
+Demo scripts to setup an OpenEdge Command Center environment with support for OpenTelemetry metrics.
+
+The scripts can be run on a virtual machine running Ubuntu Linux 22.04.
+The VM could be created on AWS, Azure or other virtualization environment.
+Scripts run commands to detect the IP address of the machine.
+
 ### Requirements 
 * Ubuntu Linux 22.04
+    * user with sudo access
 * OpenEdge media:
     * PROGRESS_OE_12.8.3_LNX_64.tar.gz
     * PROGRESS_OECC_SERVER_1.3.0_LNX_64.tar.gz
@@ -17,6 +24,8 @@
 * You can use the OpenEdge-Samples/examples/OECC/files/response_12.8.3.ini file as a template and specify the control codes in the file.
 
 ### Components 
+The infrastructure uses multiple components. To simplify the deployment, it uses a single virtual machine with some components running at the OS level and others running as a container using Docker.
+
 * Ubuntu Virtual Machine
     * OpenEdge Database
     * PAS for OpenEdge
@@ -27,7 +36,7 @@
         * Prometheus
         * Grafana
 
-![Components](./diagram.png)
+![Components](./images/diagram.png)
 
 ### Steps
 1. Create /files directory used for the installation files.
@@ -89,11 +98,11 @@ Notes:
     * Select Prometheus as the data source.
     * Click on "Select metric" and click on Open.
 
-![Selecting a Metric #1](./selecting_a_metric1.png)
+![Selecting a Metric #1](./images/selecting_a_metric1.png)
 
     * Search for "DB_" and select the BufferHits metric from the list.
 
-![Selecting a Metric #2](./selecting_a_metric2.png)
+![Selecting a Metric #2](./images/selecting_a_metric2.png)
 
     * Click on Run queries.
     * Click on Time series to change the visualization to use a Gauge.
@@ -103,7 +112,7 @@ Notes:
     * Click on the Green dot for Base to use Orange.
     * Click on Apply.
 
-![Visualization](./bufferhits_visualization.png)
+![Visualization](./images/bufferhits_visualization.png)
 
 4. Click on Add / Visualization (on toolbar) to add a visualization for a PASOE metric.
     * Click on "Select metric" and click on Open.
@@ -113,7 +122,7 @@ Notes:
     * Click on Apply.
 5. Click on the "Save dashboard" button (floppy disk icon on toolbar) to save the dashboard.
 
-![Dashboard](./openedge_dashboard.png)
+![Dashboard](./images/openedge_dashboard.png)
 
 Notes:
 * Examples of Grafana dashboards can be found at https://grafana.com/grafana/dashboards/

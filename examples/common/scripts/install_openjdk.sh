@@ -1,4 +1,7 @@
 #!/bin/bash
+#
+# Script to install OpenJDK by downloading the latest version from GitHub.
+#
 
 # set -x
 

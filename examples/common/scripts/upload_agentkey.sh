@@ -1,4 +1,7 @@
 #!/bin/bash
+#
+# Script to upload a known agent key to OpenEdge Command Center.
+#
 
 # set -x
 

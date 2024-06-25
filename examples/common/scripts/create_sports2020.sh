@@ -1,4 +1,7 @@
 #!/bin/bash
+#
+# Script to create instance of the sports2020 database with DBA user.
+#
 
 # set -x
 

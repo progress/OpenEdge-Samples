@@ -1,4 +1,7 @@
 #!/bin/bash
+#
+# Script to create PASOE instance oepas1 for the corresponding demo.
+#
 
 # Environment Variables
 # DEMO: Location of demo files

@@ -1,4 +1,7 @@
 #!/bin/bash
+#
+# Script to install OpenEdge on Linux using silent install.
+#
 
 # set -x
 if [ "$1" == "" ]
