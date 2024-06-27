@@ -2,7 +2,7 @@
 
 if [ "$EUID" -eq "0" ]
 then
-  echo "Usage: ./setup.sh"
+  echo "Usage: setup.sh"
   echo "Program must be run as a non-root user with sudo access"
   exit 1
 fi
@@ -13,35 +13,35 @@ export OECC_VERSION=1.3.0
 export DEMO=`pwd`
 
 FILE=PROGRESS_OE_${OPENEDGE_VERSION}_LNX_64.tar.gz
-if [ ! -f /files/$FILE ]
+if [ ! -f /install/$FILE ]
 then
-  echo "Prerequisite: OpenEdge ${OPENEDGE_VERSION} media ($FILE) must be found in /files folder."
+  echo "Prerequisite: OpenEdge ${OPENEDGE_VERSION} media ($FILE) must be found in /install folder."
   exit
 fi
 
 FILE=response_${OPENEDGE_VERSION}.ini
-if [ ! -f /files/$FILE ]
+if [ ! -f /install/$FILE ]
 then
-  echo "Prerequisite: OpenEdge ${OPENEDGE_VERSION} response.ini file ($FILE) must be found in /files folder."
+  echo "Prerequisite: OpenEdge ${OPENEDGE_VERSION} response.ini file ($FILE) must be found in /install folder."
   exit
 fi
 
 FILE=PROGRESS_OECC_SERVER_${OECC_VERSION}_LNX_64.tar.gz
-if [ ! -f /files/$FILE ]
+if [ ! -f /install/$FILE ]
 then
-  echo "Prerequisite: OpenEdge Command Center server ${OECC_VERSION} .tar.gz file ($FILE) must be found in /files folder."
+  echo "Prerequisite: OpenEdge Command Center server ${OECC_VERSION} .tar.gz file ($FILE) must be found in /install folder."
   exit
 fi
 
 if [ ! -f docker/oecc/$FILE ]
 then
-  cp -vi /files/$FILE docker/oecc/
+  cp -vi /install/$FILE docker/oecc/
 fi
 
 FILE=PROGRESS_OECC_AGENT_${OECC_VERSION}_LNX_64.bin
-if [ ! -f /files/$FILE ]
+if [ ! -f /install/$FILE ]
 then
-  echo "Prerequisite: OpenEdge Command Center agent ${OECC_VERSION} .bin file ($FILE) must be found in /files folder."
+  echo "Prerequisite: OpenEdge Command Center agent ${OECC_VERSION} .bin file ($FILE) must be found in /install folder."
   exit
 fi
 
@@ -77,18 +77,19 @@ fi
 
 # echo PRIVATE_IP_ADDRESS: $PRIVATE_IP_ADDRESS
 
-for file in openedge.properties otagentoedb.yaml otagentpasoe.yaml serverInfo.json
+# Copy config files that need tailoring to the /files
+for file in otagentoedb.yaml otagentpasoe.yaml serverInfo.json
 do
-  cp files/$file /files
+  cp config/$file /install
   if [ "${PRIVATE_IP_ADDRESS}" != "" ]
   then
-    sed -i "s/192.168.56.215/${PRIVATE_IP_ADDRESS}/g" /files/$file
+    sed -i "s/192.168.56.215/${PRIVATE_IP_ADDRESS}/g" /install/$file
   fi
 done
 
 if [ ! -f /etc/rc.local ]
 then
-  sudo cp files/rc.local /etc/rc.local
+  sudo cp config/rc.local /etc/rc.local
   sudo chmod +x /etc/rc.local
 fi    
 

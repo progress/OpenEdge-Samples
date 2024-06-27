@@ -24,13 +24,13 @@ VERSION=${OECC_VERSION}
 if [ ! -d /usr/oecc_agent ]
 then
   echo "Installing OpenEdge Command Center Agent..."
-  sudo chmod +rx /files/PROGRESS_OECC_AGENT_${VERSION}_LNX_64.bin
-  sudo /files/PROGRESS_OECC_AGENT_${VERSION}_LNX_64.bin \
+  sudo chmod +rx /install/PROGRESS_OECC_AGENT_${VERSION}_LNX_64.bin
+  sudo /install/PROGRESS_OECC_AGENT_${VERSION}_LNX_64.bin \
     -i silent \
-    -f $DEMO/files/response_agent_${VERSION}.properties
+    -f $DEMO/config/response_agent_${VERSION}.properties
 
-  sudo cp /files/otagentoedb.yaml /usr/oecc_agent/conf
-  sudo cp /files/otagentpasoe.yaml /usr/oecc_agent/conf
+  sudo cp /install/otagentoedb.yaml /usr/oecc_agent/conf
+  sudo cp /install/otagentpasoe.yaml /usr/oecc_agent/conf
 
   sudo systemctl restart Progress-OpenEdge-Command-Center-Agent.service
 fi

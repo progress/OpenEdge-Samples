@@ -23,7 +23,7 @@ fi
 
 echo "Installing OpenEdge..."
 
-FILES=/files
+FILES=/install
 VERSION=$1
 
 cd $FILES
@@ -40,7 +40,7 @@ fi
 mkdir -p /tmp/openedge
 tar xzf $FILES/$OPENEDGE_PACKAGE -C /tmp/openedge
 cd /tmp
-time sudo ./openedge/proinst -b /files/response_${VERSION}.ini -l /tmp/install.log
+time sudo ./openedge/proinst -b /install/response_${VERSION}.ini -l /tmp/install.log
 rm -rf /tmp/openedge
 cd /
 

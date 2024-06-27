@@ -24,7 +24,7 @@ fi
 
 echo "Installing OpenJDK..."
 
-FILES=/files
+FILES=/install
 VERSION=$1
 OWNER=adoptium
 REPO=temurin${VERSION}-binaries

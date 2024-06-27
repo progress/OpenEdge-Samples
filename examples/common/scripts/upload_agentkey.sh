@@ -16,11 +16,11 @@ ID_TOKEN=`curl http://localhost:8000/api/auth/login \
      -H "Content-type: application/json" \
      -d "{ \"userName\": \"$OECC_USER_NAME\", \"password\": \"$OECC_USER_PASSWORD\" }" | jq -r '.idToken'`
 
-jq '{ agentKey: .agentKey, agentKeyName: .agentKeyName }' /files/serverInfo.json > /tmp/payload.json
+jq '{ agentKey: .agentKey, agentKeyName: .agentKeyName }' /install/serverInfo.json > /tmp/payload.json
 
 curl http://localhost:8000/api/admin/agentKeys \
      -s \
      -X POST \
      -H "Content-type: application/json" \
      -H "Authorization: Bearer $ID_TOKEN" \
-     -d "`jq '{ agentKey: .agentKey, agentKeyName: .agentKeyName }' /files/serverInfo.json`"
+     -d "`jq '{ agentKey: .agentKey, agentKeyName: .agentKeyName }' /install/serverInfo.json`"

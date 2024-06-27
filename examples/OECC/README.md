@@ -21,7 +21,7 @@ Scripts run commands to detect the IP address of the machine.
         * Progress ProdAS for OE
 
 **Notes:**
-* You can use the OpenEdge-Samples/examples/OECC/files/response_12.8.3.ini file as a template and specify the control codes in the file.
+* You can use the OpenEdge-Samples/examples/OECC/config/response_12.8.3.ini file as a template and specify the control codes in the file.
 
 ### Components 
 The infrastructure uses multiple components. To simplify the deployment, it uses a single virtual machine with some components running at the OS level and others running as a container using Docker.
@@ -39,13 +39,17 @@ The infrastructure uses multiple components. To simplify the deployment, it uses
 ![Components](./images/diagram.png)
 
 ### Steps
-1. Create /files directory used for the installation files.
+
+#### Preparing the installation with the preequisites
+1. Create /install directory used for the installation files.
 ~~~
-sudo mkdir -p /files
-sudo chown $USER /files
+sudo mkdir -p /install
+sudo chown $USER /install
 ~~~
 
-2. Copy the OpenEdge media files and the response file to /files.
+2. Copy the OpenEdge media files and the response file to /install.
+
+#### Setting up the environment
 
 3. Clone the OpenEdge-Samples repo:
 ~~~
@@ -53,15 +57,17 @@ cd
 git clone https://github.com/progress/OpenEdge-Samples.git
 ~~~
 
-4. Run 'setup.sh' from the OECC directory. Script uses "sudo" to perform administrator tasks.
+4. Run 'setup.sh' in the OECC/scripts directory. Script uses "sudo" to perform administrator tasks.
 ~~~
 cd ~/OpenEdge-Samples/examples/OECC
-./setup.sh
+./scripts/setup.sh
 ~~~
+
+#### Testing the environment
 
 5. Test the configuration.
 ~~~
-./test.sh
+./scripts/test.sh
 ~~~
 
 6. Access OpenEdge Command Center via a web browser:
@@ -81,8 +87,8 @@ cd ~/OpenEdge-Samples/examples/OECC
 * http://&lt;host-machine&gt;:3000
     * Use admin/admin to login
 
-Notes:
-* The setup script, adds /etc/rc.local to start the configuration on startup of the machine. You can also use "./start.sh" and "./stop.sh" to manually start and stop the configuration.
+**Notes:**
+* The setup script, adds /etc/rc.local to start the configuration on startup of the machine. You can also use "./scripts/start.sh" and "./scripts/stop.sh" to manually start and stop the configuration.
 
 ### Creating a Dasboard in Grafana
 
