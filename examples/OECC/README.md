@@ -27,19 +27,21 @@ Scripts run commands to detect the IP address of the machine.
 ### Components 
 The infrastructure uses multiple components. To simplify the deployment, it uses a single virtual machine with some components running at the OS level and others running as a container using Docker.
 
-* Ubuntu Virtual Machine
-    * OpenEdge Database
-    * PAS for OpenEdge
-    * OpenEdge Command Center agent
-    * Docker
-        * OpenEdge Command Center server
-        * MongoDB
-        * Prometheus
-        * Grafana
+* Ubuntu Virtual Machine latest 22.04 (tested 22.04.4)
+    * OpenEdge Database 12.8.3
+    * PAS for OpenEdge 12.8.3
+    * OpenEdge Command Center agent 1.3.0
+    * Docker (latest, version tested: 26.1.4)
+        * OpenTelemetry Collector 0.53.0
+        * Prometheus (latest, version tested: v2.53.0)
+        * Grafana (latest, version tested: 9.5.20)
+        * MongoDB 4.4-rc-focal
+        * OpenEdge Command Center server 1.3.0
 
 The OpenEdge Database, PAS for OpenEdge and the OpenEdge Command Center agent are installed at the OS level.
-Grafana, MongoDB, Prometheus and the OpenEdge Command Center server are deployed using Docker.
+The OpenTelemetry Collector, Prometheus, Grafana, MongoDB, and the OpenEdge Command Center server are deployed using Docker.
 
+The following diagram shows the components use for OpenTelemetry support.
 ![Components](./images/diagram.png)
 
 See related diagram at 
