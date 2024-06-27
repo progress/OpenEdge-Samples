@@ -1,3 +1,15 @@
+/** ------------------------------------------------------------------------
+    File        : customer.p
+    Purpose     : Return records from the Customer table as JSON.
+    Syntax      :
+    Description :
+    @author egarcia
+    Modified    : Thu Jun 27 15:32:00 EST 2024
+    Notes       :
+    * Deploy to openedge/ directory in PAS instance 
+      using OpenEdge.Web.CompatibilityHandler
+    * Access using http://<host-machine>:8810/web/customer.p
+  ---------------------------------------------------------------------- */
 USING Progress.Json.ObjectModel.JsonObject.
 
 CREATE WIDGET-POOL.
