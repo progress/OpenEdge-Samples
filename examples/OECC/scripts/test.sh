@@ -1,4 +1,7 @@
 #!/bin/bash
+#
+# Test the demo environment.
+#
 
 echo -n "Testing OEPAS1 instance... "
 RECORDS=`curl -s http://localhost:8810/web/customer.p | jq '.dsCustomer.ttCustomer | length'`

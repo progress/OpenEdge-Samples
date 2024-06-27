@@ -21,7 +21,8 @@ Scripts run commands to detect the IP address of the machine.
         * Progress ProdAS for OE
 
 **Notes:**
-* You can use the OpenEdge-Samples/examples/OECC/config/response_12.8.3.ini file as a template and specify the control codes in the file.
+* You can use the `OpenEdge-Samples/examples/OECC/config/response_12.8.3.ini` file as a template and specify the control codes in the file.
+* The demo scripts install OpenJDK to `/usr/lib/jvm/jdk` and OpenEdge to `/psc/dlc`.
 
 ### Components 
 The infrastructure uses multiple components. To simplify the deployment, it uses a single virtual machine with some components running at the OS level and others running as a container using Docker.
@@ -36,18 +37,24 @@ The infrastructure uses multiple components. To simplify the deployment, it uses
         * Prometheus
         * Grafana
 
+The OpenEdge Database, PAS for OpenEdge and the OpenEdge Command Center agent are installed at the OS level.
+Grafana, MongoDB, Prometheus and the OpenEdge Command Center server are deployed using Docker.
+
 ![Components](./images/diagram.png)
+
+See related diagram at 
+https://www.progress.com/openedge/features/command-center
 
 ### Steps
 
-#### Preparing the installation with the preequisites
-1. Create /install directory used for the installation files.
+#### Preparing the installation with the prerequisites
+1. Create `/install` directory used for the installation files.
 ~~~
 sudo mkdir -p /install
 sudo chown $USER /install
 ~~~
 
-2. Copy the OpenEdge media files and the response file to /install.
+2. Copy the OpenEdge media files and the response file to `/install`.
 
 #### Setting up the environment
 
@@ -57,7 +64,7 @@ cd
 git clone https://github.com/progress/OpenEdge-Samples.git
 ~~~
 
-2. Run 'setup.sh' in the OECC/scripts directory. Script uses "sudo" to perform administrator tasks.
+2. Run `setup.sh` in the `OECC/scripts` directory. Script uses `sudo` to perform administrator tasks.
 ~~~
 cd ~/OpenEdge-Samples/examples/OECC
 ./scripts/setup.sh
@@ -88,7 +95,7 @@ cd ~/OpenEdge-Samples/examples/OECC
     * Use admin/admin to login
 
 **Notes:**
-* The setup script, adds /etc/rc.local to start the configuration on startup of the machine. You can also use "./scripts/start.sh" and "./scripts/stop.sh" to manually start and stop the configuration.
+* The setup script, adds `/etc/rc.local` to start the configuration on startup of the machine. You can also use `./scripts/start.sh` and `./scripts/stop.sh` to manually start and stop the configuration.
 
 ### Creating a Dasboard in Grafana
 
@@ -96,7 +103,7 @@ cd ~/OpenEdge-Samples/examples/OECC
 
 1. Click on DATA SOURCES then on Prometheus to create a data source with the following values:
     * Prometheus server URL: http://prometheus:9090
-        * Prometheus is a reference to a service in the docker-compose.yaml file and can be used as a hostname.
+        * Prometheus is a reference to a service in the `docker-compose.yaml` file and can be used as a hostname.
     * Scroll down and click on Save & Test
 
 2. Click on Home then on DASHBOARDS to create a dashboard.

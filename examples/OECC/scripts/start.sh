@@ -3,14 +3,29 @@
 # Start the OpenEdge Command Center environment.
 #
 
-if ! /psc/dlc/bin/proutil /psc/wrk/sports2020 -C probe liveness
+export DLC=${DLC-/psc/dlc}
+export WRKDIR=${WRKDIR-/psc/wrk}
+
+if [ ! -d "$DLC" ]
+then
+  echo OpenEdge installation was not found.
+  exit 1
+fi
+
+if [ ! -d "$WRKDIR" ]
+then
+  echo OpenEdge working directory was not found.
+  exit 1
+fi
+
+if ! $DLC/bin/proutil $WRKDIR/sports2020 -C probe liveness
 then
   echo Starting database broker for Sports2020...
-  sudo DLC=/psc/dlc /psc/dlc/bin/proserve /psc/wrk/sports2020 -S 20000 -n 30
+  sudo $DLC/bin/proserve $WRKDIR/sports2020 -S 20000 -n 30
 fi
 
 echo Starting PASOE instance oepas1... 
-sudo DLC=/psc/dlc /psc/wrk/oepas1/bin/tcman.sh pasoestart -restart
+sudo $WRKDIR/oepas1/bin/tcman.sh pasoestart -restart
 
 echo Running docker compose up -d...
 cd docker
