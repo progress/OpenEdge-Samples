@@ -51,13 +51,13 @@ sudo chown $USER /install
 
 #### Setting up the environment
 
-3. Clone the OpenEdge-Samples repo:
+1. Clone the OpenEdge-Samples repo:
 ~~~
 cd
 git clone https://github.com/progress/OpenEdge-Samples.git
 ~~~
 
-4. Run 'setup.sh' in the OECC/scripts directory. Script uses "sudo" to perform administrator tasks.
+2. Run 'setup.sh' in the OECC/scripts directory. Script uses "sudo" to perform administrator tasks.
 ~~~
 cd ~/OpenEdge-Samples/examples/OECC
 ./scripts/setup.sh
@@ -65,26 +65,26 @@ cd ~/OpenEdge-Samples/examples/OECC
 
 #### Testing the environment
 
-5. Test the configuration.
+1. Test the configuration.
 ~~~
 ./scripts/test.sh
 ~~~
 
-6. Access OpenEdge Command Center via a web browser:
-* http://&lt;host-machine&gt;:8000
+2. Access OpenEdge Command Center via a web browser:
+    * http://&lt;host-machine&gt;:8000
     * Use admin/admin to login
 
-7. Access the PAS for OpenEdge instance via a web browser:
-* http://&lt;host-machine&gt;:8810
-* http://&lt;host-machine&gt;:8810/web/customer.p
+3. Access the PAS for OpenEdge instance via a web browser:
+    * http://&lt;host-machine&gt;:8810
+    * http://&lt;host-machine&gt;:8810/web/customer.p
 
-8. Access Prometheus via a web browser:
-* http://&lt;host-machine&gt;:9090
+4. Access Prometheus via a web browser:
+    * http://&lt;host-machine&gt;:9090
     * Use DB_ in the Expression field to query for metrics for the OpenEdge database
     * Use PASOE_ in the Expression field to query for metrics for PAS for OpenEdge
 
-6. Access Grafana via a web browser:
-* http://&lt;host-machine&gt;:3000
+5. Access Grafana via a web browser:
+    * http://&lt;host-machine&gt;:3000
     * Use admin/admin to login
 
 **Notes:**
