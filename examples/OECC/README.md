@@ -9,7 +9,7 @@ In the new version, the scripts can be used on an Ubuntu VM running on various v
 
 Scripts run commands to detect the IP address of the machine.
 
-### Requirements 
+### Requirements
 * Ubuntu Linux 22.04
     * user with sudo access
 * OpenEdge media:
