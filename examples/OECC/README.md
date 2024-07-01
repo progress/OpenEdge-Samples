@@ -21,8 +21,11 @@ Scripts run commands to detect the IP address of the machine.
         * Progress ProdAS for OE
 
 **Notes:**
+* The OpenEdge media for both OpenEdge and OpenEdge Command Center can be downloaded from the Progress OpenEdge 12.8.x section in the ESD site.
 * You can use the `OpenEdge-Samples/examples/OECC/config/response_12.8.3.ini` file as a template and specify the control codes in the file.
+* The demo scripts install the components using the media and the response .ini file.
 * The demo scripts install OpenJDK to `/usr/lib/jvm/jdk` and OpenEdge to `/psc/dlc`.
+* The demo scripts install Docker Engine on Ubuntu using the instructions at https://docs.docker.com/engine/install/ubuntu/.
 
 ### Components 
 The infrastructure uses multiple components. To simplify the deployment, it uses a single virtual machine with some components running at the OS level and others running as a container using Docker.
