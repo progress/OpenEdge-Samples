@@ -1,0 +1,13 @@
+{
+    "_comment": "Provide complete path for key and certificate files if 'isServerSecured' is set to true",
+    "nodeId": "",
+    "hostName": "",
+    "port": 8000,
+    "dataDir": "/oecc/data",
+    "security": {
+        "isServerSecured": false,
+        "key": "",
+        "certificate": "",
+        "intermediateCerts": []
+    }
+}

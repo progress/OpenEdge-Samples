@@ -1,0 +1,7 @@
+{
+  "host": "192.168.56.215",
+  "port": "8000",
+  "agentKey": "4e2b66cd-948b-4618-acd5-8d71a3ca5195",
+  "agentKeyName": "DEMO_AGENT_KEY",
+  "isServerSecured": false
+}

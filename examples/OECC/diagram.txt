@@ -1,0 +1,21 @@
+title Using OpenTelemetry in OpenEdge
+
+participantgroup Virtual Machine
+participant Sports2020#lightblue
+participant oepas1#lightblue
+participant "OECC Agent" as OECCAgent#lightgreen
+end
+participantgroup Docker
+participant "OpenTelemetry Collector" as Collector#lightgreen
+participant Prometheus#lightblue
+participant Grafana#orange
+end
+actor User
+
+Sports2020<-OECCAgent: ""
+oepas1<-OECCAgent: ""
+OECCAgent->Collector: ""
+note over OECCAgent#yellow:Agent post metrics to collector
+Prometheus->Collector: ""
+Grafana->Prometheus: ""
+User->Grafana: ""

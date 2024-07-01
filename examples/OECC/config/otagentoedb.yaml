@@ -1,0 +1,19 @@
+exporter:
+  name: "otlp"
+  endpoint: "http://192.168.56.215:4317"
+  protocol: "grpc"
+  connectionretry: 20
+  timeout: 10
+
+  
+oedbInstances:
+-  dbname: sports2020
+   host: localhost
+   port: 20000
+   user: dba
+   password: dba
+   metricsregex: 
+   otherdbconnparams: 
+   dbconnectionretry: 5
+   dbschedule: 30
+   dbduration: seconds
