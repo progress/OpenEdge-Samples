@@ -2,8 +2,11 @@
 
 Demo scripts to setup an OpenEdge Command Center environment with support for OpenTelemetry metrics.
 
-The scripts can be run on a virtual machine running Ubuntu Linux 22.04.
-The VM could be created on AWS, Azure or other virtualization environment.
+The scripts are an updated version of the scripts used for the following blog post:
+* https://www.progress.com/blogs/using-opentelemetry-metrics-support-openedge-azure
+
+In the new version, the scripts can be used on an Ubuntu VM running on various virtualization options such as AWS, Azure, VirtualBox or VMWare Fusion.
+
 Scripts run commands to detect the IP address of the machine.
 
 ### Requirements 
@@ -102,7 +105,7 @@ cd ~/OpenEdge-Samples/examples/OECC
 **Notes:**
 * The setup script, adds `/etc/rc.local` to start the configuration on startup of the machine. You can also use `./scripts/start.sh` and `./scripts/stop.sh` to manually start and stop the configuration.
 
-### Creating a Dasboard in Grafana
+### Creating a Dashboard in Grafana
 
 **Steps**
 
